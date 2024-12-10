@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ポモドーロタイマー</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>ポモドーロタイマー</h1>
+        <div class="timer">
+            <span id="minutes">25</span>:<span id="seconds">00</span>
+        </div>
+        <button id="startButton">スタート</button>
+        <button id="pauseButton">一時停止</button>
+        <button id="resetButton">リセット</button>
+
+        <h2>音楽の選択</h2>
+        <label for="workMusic">勉強中の音楽:</label>
+        <input type="file" id="workMusic" accept="audio/*">
+        <label for="breakMusic">休憩中の音楽:</label>
+        <input type="file" id="breakMusic" accept="audio/*">
+        <audio id="audioPlayer" controls></audio>
+
+        <h2>経験値＆レベル</h2>
+        <div class="progress-container">
+            <div id="level">レベル: 1</div>
+            <div class="progress-bar">
+                <div id="progress" style="width: 0%;"></div>
+            </div>
+        </div>
+        <div id="totalTime">総勉強時間: 0分</div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
